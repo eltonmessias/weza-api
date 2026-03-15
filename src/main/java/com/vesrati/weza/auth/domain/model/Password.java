@@ -12,6 +12,11 @@ public final class Password {
         this.encoded = encoded;
     }
 
+    public static Password fromRaw(String raw) {
+        validate(raw);
+        return new Password(raw, false);
+    }
+
     public static Password fromEncoded(String encoded) {
         if(encoded == null || encoded.isBlank())
             throw new AuthException("Invalid encoded password");

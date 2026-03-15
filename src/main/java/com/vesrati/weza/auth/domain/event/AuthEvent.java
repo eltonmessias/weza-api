@@ -13,7 +13,7 @@ public sealed interface AuthEvent permits
     LocalDateTime occurredAt();
 
     record UserRegisteredEvent(UUID userId, String email, String name, Role role, LocalDateTime occurredAt) implements AuthEvent{
-        public UserRegisteredEvent(UUID userId, String email, String name, Role role) {
+        public UserRegisteredEvent(UUID userId, String email, String name, String role) {
             this(userId, email, name, role, LocalDateTime.now());
         }
     }

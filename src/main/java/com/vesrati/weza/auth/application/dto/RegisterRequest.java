@@ -17,6 +17,8 @@ public record RegisterRequest(
         @Size(min = 8, message = "Password deve ter mínimo 8 caracteres")
         String password,
 
+        String role,
+
         String phone
 ) {
 }

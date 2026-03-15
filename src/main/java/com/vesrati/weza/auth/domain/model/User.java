@@ -36,14 +36,14 @@ public class User {
         this.updatedAt = updatedAt;
     }
 
-    public static User create(String name, Email email, PhoneNumber phoneNumber, Role role, Password passwordHash){
+    public static User create(String name, String email, String phoneNumber, String role, String passwordHash){
         return new User(
                 UUID.randomUUID(),
                 validateName(name),
-                email,
-                phoneNumber,
-                role,
-                passwordHash,
+                new Email(email),
+                new PhoneNumber(phoneNumber),
+                Role.valueOf(role),
+                Password.fromRaw(passwordHash),
                 true,
                 false,
                 LocalDateTime.now(),
@@ -122,4 +122,40 @@ public class User {
     public boolean isEmailVerified() {return emailVerified;}
     public LocalDateTime getCreatedAt() {return createdAt;}
     public LocalDateTime getUpdatedAt() {return updatedAt;}
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(Email email) {
+        this.email = email;
+    }
+
+    public void setPassword(Password password) {
+        this.password = password;
+    }
+
+    public void setPhoneNumber(PhoneNumber phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public void setEmailVerified(boolean emailVerified) {
+        this.emailVerified = emailVerified;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 }
